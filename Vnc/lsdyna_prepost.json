@@ -1,0 +1,109 @@
+{
+  "name":"LS_Pre_Post",
+  "parallelism":"parallel",
+  "version":"9.1.0",
+  "label":"LS-Pre/Post",
+  "shortDescription":"LS-PrePost is interactive advanced pre- and post-processor and model editor from LSTC.",
+  "longDescription":"LS-PrePost is capable of importing, editing and exporting LS-DYNA keyword files for generating LS-DYNA input files. The new graphical interface of LS-PrePost version 3.0 can be operated intuitively by the icons and tool bars. It supports the latest Open-GL standards to provide fast rendering for fringe plots and animation results.",
+  "helpURI":"http://www.lstc.com/lspp/",
+  "appCategory": "Visualization",
+  "defaultMemory":1,
+  "defaultMemoryPerNode":1,
+  "defaultNodeCount":1,
+  "defaultProcessors":16,
+  "defaultProcessorsPerNode":16,
+  "defaultQueue":"normal",
+  "defaultMaxRunTime": "02:00:00",
+  "deploymentPath":"hgurram/APPS/ls_pre_post",
+  "deploymentSystem":"designsafe.storage.default",
+  "executionSystem":"designsafe.community.exec.stampede2.nores",
+  "executionType":"HPC",
+  "templatePath":"wrapper.sh",
+  "testPath":"test/test.sh",
+  "checkpointable":false,
+  "modules":[],
+  "tags":[
+    "DesignSafe",
+    "hazards",
+    "NHERI",
+    "VNC",
+    "desktop",
+    "ls-dyna"
+  ],
+  "ontology":[
+  ],
+  "inputs":[
+    {
+      "id":"workingDirectory",
+      "value":{
+       "validator" : "",
+        "visible" : true,
+        "required" : true,
+        "order" : 0,
+        "enquote" : false,
+        "default" : "agave://designsafe.storage.default/"
+      },
+      "details":{
+        "label":"Working Directory",
+        "description":"The directory containing the files that you want to work on. This directory and its files will be copied to where your LS-Pre/Post session runs. You can drag the link for the directory from the Data Browser on the left, or click the 'Select Input' button and then select the directory.k the 'Select Input' button and then select the directory.",
+        "argument":null,
+        "showArgument":false,
+        "repeatArgument":false
+      },
+      "semantics":{
+	    "minCardinality" : 1,
+        "maxCardinality" : 1,
+        "ontology":[
+          "xsd:string"
+        ],
+        "minCardinality":1,
+        "maxCardinality":1,
+        "fileTypes":[
+          "raw-0"
+        ]
+      }
+    }
+  ],
+  "parameters" : [ 
+  	{
+    "id":"desktop_resolution",
+    "value":{
+      "visible" : true,
+        "required" : true,
+        "type" : "enumeration",
+        "order" : 0,
+        "enquote" : false,
+        "default" : "1280x800",
+        "enum_values" : [ {
+          "800x600" : "800x600"
+        }, {
+          "1280x800" : "1280x800"
+        }, {
+          "1920x1080" : "1920x1080"
+        }, {
+          "1920x1200" : "1920x1200"
+        }, {
+          "1600x1200" : "1600x1200"
+        }, {
+          "2560x1600" : "2560x1600"
+        } ]
+      },
+    "details":{
+      "label":"Desktop Resolution",
+      "description":"Set the desktop screen size for your visualization session.",
+      "argument":null,
+      "showArgument":false,
+      "repeatArgument":false
+    },
+    "semantics":{
+      "ontology":[
+        "xs:enumeration",
+        "xs:string"
+      ],
+      "minCardinality":1,
+      "maxCardinality":1
+    }
+  }
+  ],
+  "outputs" : [ ]
+}
